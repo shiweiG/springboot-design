@@ -20,6 +20,8 @@ public class Course {
     private double max_score;
     @OneToMany(mappedBy = "course")
     private List<Elective>electives;
+    @ManyToOne
+    private Teacher teacher;
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
             updatable = false)

@@ -17,9 +17,9 @@ public class Teacher {
     private String name;
     @OneToMany(mappedBy = "teacher")
     private List<Student>students;
+    @OneToMany(mappedBy = "teacher")
+    private List<Course>courses;
 
-    @OneToOne
-    private Course course;
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
             updatable = false)

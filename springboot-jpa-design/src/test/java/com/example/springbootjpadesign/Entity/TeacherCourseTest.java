@@ -13,18 +13,14 @@ import javax.persistence.EntityManager;
 @Slf4j
 @Rollback(value = false)
 @Transactional
-public class StudentCourseTest {
+public class TeacherCourseTest {
     @Autowired
     private EntityManager manager;
     @Test
-    public void test_addstudentcourse(){
-        Student student01=new Student();
-        student01.setName("姚世维");
-        manager.persist(student01);
-
-        Student student02=new Student();
-        student02.setName("黄娇");
-        manager.persist(student02);
+    public void test_teacher_course(){
+       Teacher teacher1=new Teacher();
+       teacher1.setName("王波");
+       manager.persist(teacher1);
 
         Course course01=new Course();
         course01.setName("web框架");
@@ -35,13 +31,13 @@ public class StudentCourseTest {
         manager.persist(course02);
     }
     @Test
-    public void test_rel(){
-        Student student01=manager.find(Student.class,1);
-        Course course01=manager.find(Course.class,1);
-        Elective elective=new Elective();
-        elective.setDetail("因为热爱");
-        elective.setCourse(course01);
-        elective.setStudent(student01);
-        manager.persist(elective);
+    public void test_rel2(){
+     Teacher teacher1=manager.find(Teacher.class,1);
+     Course course01=manager.find(Course.class,1);
+     course01.setTeacher(teacher1);
+
+     Course course02=manager.find(Course.class,2);
+     course02.setTeacher(teacher1);
+
     }
 }
