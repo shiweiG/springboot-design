@@ -15,11 +15,11 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private int Student_id;
+
     @OneToMany(mappedBy = "student")
     private List<Elective>electives;
 
-    @ManyToOne
-    private Teacher teacher;
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
             updatable = false)
@@ -29,4 +29,8 @@ public class Student {
             insertable = false,
             updatable = false)
     private LocalDateTime updateTime;
+    public Student(String name,int student_id){
+        this.name=name;
+        this.Student_id=Student_id;
+    }
 }

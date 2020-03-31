@@ -13,6 +13,7 @@ public class Elective {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String detail;
+    private double grade;
     @ManyToOne
     private Student student;
     @ManyToOne

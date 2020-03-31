@@ -15,8 +15,7 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    @OneToMany(mappedBy = "teacher")
-    private List<Student>students;
+    private int number;
     @OneToMany(mappedBy = "teacher")
     private List<Course>courses;
 
@@ -29,4 +28,8 @@ public class Teacher {
             insertable = false,
             updatable = false)
     private LocalDateTime updateTime;
+    public Teacher(String name,int number){
+        this.name=name;
+        this.number=number;
+    }
 }

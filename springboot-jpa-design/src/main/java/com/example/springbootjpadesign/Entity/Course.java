@@ -16,6 +16,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private double credits;
     private double low_score;
     private double max_score;
     @OneToMany(mappedBy = "course")
@@ -31,5 +32,9 @@ public class Course {
             insertable = false,
             updatable = false)
     private LocalDateTime updateTime;
+    public Course(String name,double credits){
+        this.name=name;
+        this.credits=credits;
+    }
 
 }
