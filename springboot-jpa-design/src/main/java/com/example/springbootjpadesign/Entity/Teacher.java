@@ -16,6 +16,7 @@ public class Teacher {
     private int id;
     private String name;
     private int number;
+    private String password="123456";
     @OneToMany(mappedBy = "teacher")
     private List<Course>courses;
 

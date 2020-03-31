@@ -15,7 +15,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int Student_id;
+    private String password="123456";
 
     @OneToMany(mappedBy = "student")
     private List<Elective>electives;
@@ -29,8 +29,5 @@ public class Student {
             insertable = false,
             updatable = false)
     private LocalDateTime updateTime;
-    public Student(String name,int student_id){
-        this.name=name;
-        this.id=Student_id;
-    }
+
 }
