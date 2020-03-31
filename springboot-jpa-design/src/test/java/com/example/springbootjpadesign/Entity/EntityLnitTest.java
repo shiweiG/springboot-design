@@ -20,7 +20,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Transactional
 @Slf4j
 @Rollback(value = false)
-public class DataTest {
+public class EntityLnitTest {
     @Autowired
     private CourseRepository courseRepository;
     @Autowired

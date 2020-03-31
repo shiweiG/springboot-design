@@ -31,6 +31,6 @@ public class Student {
     private LocalDateTime updateTime;
     public Student(String name,int student_id){
         this.name=name;
-        this.Student_id=Student_id;
+        this.id=Student_id;
     }
 }
