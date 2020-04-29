@@ -13,12 +13,18 @@ import java.util.List;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
-    private int number;
-    private String password="123456";
+    private int  tea_number;
+    @OneToOne
+    @MapsId
+    private User user;
+    private Integer quantity;
+    private Integer ranges;
     @OneToMany(mappedBy = "teacher")
     private List<Course>courses;
+    @OneToMany(mappedBy = "teacher")
+    private List<Student>students;
 
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
@@ -31,6 +37,6 @@ public class Teacher {
     private LocalDateTime updateTime;
     public Teacher(String name,int number){
         this.name=name;
-        this.number=number;
+        this.tea_number=number;
     }
 }
