@@ -23,15 +23,13 @@ public class Student {
     private List<Elective>electives;
     @ManyToOne
     private Teacher teacher;
+    @OneToMany(mappedBy = "student")
+    private List<Direction>directions;
 
     @Column(columnDefinition = "timestamp default current_timestamp",
             insertable = false,
             updatable = false)
     private LocalDateTime insertTime;
-    @Column(columnDefinition = "timestamp default current_timestamp " +
-            "on update current_timestamp",
-            insertable = false,
-            updatable = false)
-    private LocalDateTime updateTime;
+
 
 }

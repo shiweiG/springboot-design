@@ -37,12 +37,5 @@ public class UserService {
         teacher.setUser(user);
         return teacherRepository.save(teacher);
     }
-
-    public Teacher updateTeacher(int quantity, int ranges, int tid) {
-        Teacher t = teacherRepository.findById(tid)
-                .orElseThrow(null);
-        t.setQuantity(quantity);
-        t.setRanges(ranges);
-        return t;
-    }
+    
 }

@@ -27,11 +27,7 @@ public class Course {
             insertable = false,
             updatable = false)
     private LocalDateTime insertTime;
-    @Column(columnDefinition = "timestamp default current_timestamp " +
-            "on update current_timestamp",
-            insertable = false,
-            updatable = false)
-    private LocalDateTime updateTime;
+
     public Course(String name,double credits){
         this.name=name;
         this.credits=credits;

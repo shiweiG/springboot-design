@@ -30,11 +30,7 @@ public class Teacher {
             insertable = false,
             updatable = false)
     private LocalDateTime insertTime;
-    @Column(columnDefinition = "timestamp default current_timestamp " +
-            "on update current_timestamp",
-            insertable = false,
-            updatable = false)
-    private LocalDateTime updateTime;
+
     public Teacher(String name,int number){
         this.name=name;
         this.tea_number=number;
