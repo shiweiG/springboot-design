@@ -9,7 +9,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 @Component
 @Slf4j
 public class RequestComponent {
-    public int getUid() {
+    public int getUid() {//获取线程级的attribute
         return (int) RequestContextHolder.currentRequestAttributes()
                 .getAttribute(MyToken.UID, RequestAttributes.SCOPE_REQUEST);
     }
@@ -18,5 +18,6 @@ public class RequestComponent {
         return (User.Role) RequestContextHolder.currentRequestAttributes()
                 .getAttribute(MyToken.ROLE, RequestAttributes.SCOPE_REQUEST);
     }
+
 
 }

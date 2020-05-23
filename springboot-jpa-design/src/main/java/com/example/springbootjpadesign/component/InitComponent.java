@@ -14,25 +14,22 @@ import org.springframework.stereotype.Component;
 public class InitComponent implements InitializingBean {
     @Autowired
     private PasswordEncoder encoder;
-
     @Autowired
     private UserService userService;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        int num = 1001;
+        final int num = 1001;
         User user = userService.getUser(num);
         if (user == null) {
             User u = new User();
-            u.setName("yao");
+            u.setName("BO");
             u.setNumber(num);
             u.setRole(User.Role.TEACHER);
-
             u.setPassword(encoder.encode(String.valueOf(num)));
-
             Teacher t = new Teacher();
-
-            userService.addTeacher(t,u);
+            t.setUser(u);
+            userService.addTeacher(t);
         }
     }
 }
