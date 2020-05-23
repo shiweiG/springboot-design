@@ -16,8 +16,11 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    //权重
     private double credits;
+    //最低分
     private double low_score;
+    //最高分
     private double max_score;
     @OneToMany(mappedBy = "course")
     private List<Elective>electives;

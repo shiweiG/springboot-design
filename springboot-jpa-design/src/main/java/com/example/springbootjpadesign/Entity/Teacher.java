@@ -15,12 +15,11 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private int  tea_number;
-    @OneToOne
+    private int  schoolNumber;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @MapsId
     private User user;
     private Integer quantity;
-    private Integer ranges;
     @OneToMany(mappedBy = "teacher")
     private List<Course>courses;
     @OneToMany(mappedBy = "teacher")
@@ -31,8 +30,5 @@ public class Teacher {
             updatable = false)
     private LocalDateTime insertTime;
 
-    public Teacher(String name,int number){
-        this.name=name;
-        this.tea_number=number;
-    }
+
 }

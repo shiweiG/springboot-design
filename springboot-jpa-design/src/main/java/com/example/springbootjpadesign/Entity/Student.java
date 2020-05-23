@@ -15,8 +15,8 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private  String  stu_number;
-    @OneToOne
+    private  String  studentNo;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     @MapsId
     private User user;
     @OneToMany(mappedBy = "student")
