@@ -2,6 +2,7 @@ package com.example.springbootjpadesign.component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -10,12 +11,11 @@ import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
-
 @Component
 public class EncryptComponent {
     @Autowired
     private ObjectMapper objectMapper;
-    @Value("${my.secretkey}")
+   @Value("${my.secretkey}")
     private String secretKey;
     @Value("${my.salt}")
     private String salt;
@@ -60,3 +60,6 @@ public class EncryptComponent {
         }
     }
 }
+
+
+
