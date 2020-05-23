@@ -6,12 +6,17 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface DirectionRepository extends BaseRepository<Direction ,Integer> {
-    /*
-    查询老师指定方向
-     */
-    @Query("from Direction d where d.name=:dname and d.id=:tid")
-    List<Direction>findByNameAndId(@Param("dname")String dname,@Param("tid")int tid);
+
+   // 查询老师指定方向
+
+   Optional<List<Direction>>findDirectionByName(String name);
+   Optional<List<Direction>>findByStudentId(String sid);
+
+
+
 }
 

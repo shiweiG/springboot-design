@@ -7,15 +7,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ElectiveRepository extends BaseRepository<Elective,Integer> {
-    /*
-    删除指定id选课记录
-     */
-    @Modifying
-    @Transactional
-    @Query("delete from Elective e where e.course.id=:cid")
-    void remove(@Param("cid")int cid);
+ Optional<List<Elective>>findElectiveByCourseId(int cid);
+ Optional<List<Elective>>findElectiveByStudentId(int sid);
+
+
 
 }
