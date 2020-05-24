@@ -46,6 +46,7 @@ public class StudentService {
         studentRepository.save(student);
         return student;
     }
+
     public Student getStudentNo(String studentNo){
         return studentRepository.findStudentByStudentNo(studentNo).orElse(null);
 

@@ -55,6 +55,7 @@ public class CourseService {
        electiveRepository.deleteById(id);
    }
 
+
    public List<Elective>electives(int sid){
        return electiveRepository.findElectiveByStudentId(sid).orElse(List.of());
    }
