@@ -1,8 +1,6 @@
 package com.example.springbootjpadesign.Entity;
 
-import com.example.springbootjpadesign.Repository.CourseRepository;
-import com.example.springbootjpadesign.Repository.StudentRepository;
-import com.example.springbootjpadesign.Repository.TeacherRepository;
+import com.example.springbootjpadesign.Repository.*;
 import com.example.springbootjpadesign.Repository.TeacherRepository;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.security.PrivateKey;
+import java.util.PrimitiveIterator;
 
 @SpringBootTest
 @Transactional
@@ -29,6 +29,8 @@ public class EntityLnitTest {
     private TeacherRepository teacherRepository;
     @Autowired
     private EntityManager manager;
+    @Autowired
+    private UserRepository userRepository;
     @Test
     //初始学生
     public void test_student(){
@@ -39,6 +41,7 @@ public class EntityLnitTest {
 
         studentRepository.save(s1);
         studentRepository.save(s2);
+
     }
     @Test
     public void test_course(){
@@ -54,11 +57,15 @@ public class EntityLnitTest {
     }
     @Test
     public void test_teacher(){
-        Teacher t1=new Teacher("王波",10);
-        Teacher t2=new Teacher("李琰",50);
+        Teacher t1=new Teacher();
+        t1.setName("sun");
+        Teacher t2=new Teacher();
+        t2.setName("娇");
         teacherRepository.save(t1);
         teacherRepository.save(t2);
     }
+
+
     @Test
     public void test_course_teacher(){
         Course c1=manager.find(Course.class,1);
@@ -79,5 +86,12 @@ public class EntityLnitTest {
         elective.setCourse(course);
         elective.setStudent(student);
         manager.persist(elective);
+    }
+    @Test
+    public void test_user(){
+        User user=new User();
+        user.setName("bo");
+        userRepository.save(user);
+
     }
 }

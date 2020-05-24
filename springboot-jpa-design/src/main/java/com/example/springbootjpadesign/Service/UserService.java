@@ -17,7 +17,7 @@ public class UserService {
     private TeacherRepository teacherRepository;
 
     public User getUser(int num) {
-        return userRepository.find(num);
+        return userRepository.findByUserId(num).orElse(null);
     }
 
     public Teacher getTeacher(int tid) {
@@ -37,5 +37,12 @@ public class UserService {
         teacher.setUser(user);
         return teacherRepository.save(teacher);
     }
-    
+
+    public void addTeacher(Teacher t) {
+        teacherRepository.save(t);
+    }
+    public User getUser1(String name){
+        return userRepository.findByName(name).orElse(null);
+    }
+
 }
